@@ -1,0 +1,49 @@
+---
+title: "CDRL Report"
+author: "Anna Lundh"
+date: "9/23/2020"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## This dataset includes data values gathered from a study on humans exploring the connection between height, weight, variables such as age and BMI, with hypertension. In this report, the relationship between BMI and systolic BP and between BMI and diastolic BP was explored graphically. The spread of the data, including the median, mean, minimum and maximum were used to understand the spread of the data values in this data set. The questions looked at in this report are, what is the relationship, if there is any, between BMI and systolic BP and between BMI and diastolic BP. Also, how do factors like age and gender relate to systolic BP and diastolic BP measurements.  
+
+## The descriptive statistics, which are detailed below, allow visualization of the mean, median and mode of the major variables, like systolic and diastolic BP, weight and age. Histograms were made using the data from weight, systolic and diastolic variables, in order to visualize the spread of this data. 
+
+```{r cars}
+hypertension <- (anna_dataset_1_)
+summary(hypertension)
+hist(anna_dataset_1_$weight)
+hist(anna_dataset_1_$systolic)
+hist(anna_dataset_1_$diastolic)
+```
+
+## The plots of BMI vs. Systolic BP and BMI vs. Diastolic BP are shown below. The BMI is on the x-axis and systolic and diastolic were plotted on the y-axis. The plots show that there is a very weak increasing linear relationship between BMI and systolic BP and between BMI and diastolic BP. The linear model showing the relationship between weight and BMI showed a strong, increasing linear relationship between the two variables. A linear model relating age and systolic BP was also included, which showed a strong, increasing linear relationship between the two variables.
+
+```{r pressure, echo=FALSE}
+plot(systolic ~ bmi, anna_dataset_1_)
+regrline <- lm(systolic ~ bmi, anna_dataset_1_)
+abline(regrline, lwd=3, col='red')
+summary(regrline)
+
+plot(diastolic ~ bmi, anna_dataset_1_)
+regrline <- lm(diastolic ~ bmi, anna_dataset_1_)
+abline(regrline, lwd=3, col='red')
+summary(regrline)
+
+plot(bmi ~ weight, anna_dataset_1_)
+regrline <- lm(bmi ~ weight, anna_dataset_1_)
+abline(regrline, lwd=3, col='red')
+summary(regrline)
+
+plot(systolic ~ age, anna_dataset_1_)
+regrline <-lm(systolic ~ age, anna_dataset_1_)
+abline(regrline, lwd=3, col='red')
+summary(regrline)
+```
+## The conclusions that can be drawn from this data set are that there is a very weak, increasing linear relationship between BMI and systolic BP, as well as between BMI and diastolic BP. There is a strong, increasing linear relationship between weight and BMI, indicating that as weight increases, BMI increases. Additionally, there was a strong, increasing linear relationship between age and systolic BP, indicating that as age increases, systolic BP appears to increase as a result. This data can be used to further explore the relationship between certain variables, like age and weight, and hypertenson. 
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
