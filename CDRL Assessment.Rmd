@@ -13,7 +13,7 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## The descriptive statistics, which are detailed below, allow visualization of the mean, median and other statistics of the major variables, like systolic and diastolic BP, weight and age. Histograms were made using the data from weight, systolic and diastolic variables, in order to visualize the spread of these variables. 
 
-```{r cars}
+```{r}
 hypertension <- (anna_dataset_1_)
 summary(hypertension)
 hist(anna_dataset_1_$weight)
@@ -23,7 +23,7 @@ hist(anna_dataset_1_$diastolic)
 
 ## The plots of BMI vs. Systolic BP and BMI vs. Diastolic BP are shown below. The BMI is on the x-axis and systolic and diastolic were plotted on the y-axis. The plots show that there is a very weak increasing linear relationship between BMI and systolic BP and between BMI and diastolic BP. The linear model showing the relationship between weight and BMI showed a strong, increasing linear relationship between the two variables. A linear model relating age and systolic BP was also included, which showed a strong, increasing linear relationship between the two variables. The summaries of the regression lines generated in these plots was also included. 
 
-```{r pressure, echo=FALSE}
+```{r, echo=FALSE}
 plot(systolic ~ bmi, anna_dataset_1_)
 regrline <- lm(systolic ~ bmi, anna_dataset_1_)
 abline(regrline, lwd=3, col='red')
